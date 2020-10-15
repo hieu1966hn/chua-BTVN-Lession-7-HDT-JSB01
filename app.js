@@ -5,6 +5,7 @@ function chan(n) {
     return false;
 }
 
+
 let n;
 let a = [];
 do {
@@ -32,16 +33,31 @@ console.log(` giá trị lớn nhất trong mảng là: ` + Max);
 
 /// in ra so chan : 
 console.log("chu so chan trong mang la:");
-for(i=0;i<n;i++){
-    if(chan(a[i])){
-        console.log(a[i]);
-    }
-    
-}
-////// in ra so le:
-for(i=0;i<n;i++){
-    if(!chan(a[i])){
+for (i = 0; i < n; i++) {
+    if (chan(a[i])) {
         console.log(a[i]);
     }
 
 }
+////// in ra so le:
+console.log("chu so le trong mang la");
+for (i = 0; i < n; i++) {
+    if (!chan(a[i])) {
+        console.log(a[i]);
+    }
+
+}
+//// them phan tu khong trung lap vao mang
+let input = Number(prompt("nhap vao phan tu them vao mang"));
+let flag = true
+for (i = 0; i < n; i++) {
+    if (input === a[i]) {
+        flag = false;
+    }
+}
+if (flag === true) {
+    a.push(input);
+}
+console.log("a sau khi them phan tu la");
+console.log(a);
+
