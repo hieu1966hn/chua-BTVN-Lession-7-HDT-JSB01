@@ -4,8 +4,8 @@ function chan(n) {
     }
     return false;
 }
-
-
+let loop;// khai bao vong lap 
+do{
 let n;
 let a = [];
 do {
@@ -48,16 +48,34 @@ for (i = 0; i < n; i++) {
 
 }
 //// them phan tu khong trung lap vao mang
-let input = Number(prompt("nhap vao phan tu them vao mang"));
-let flag = true
-for (i = 0; i < n; i++) {
-    if (input === a[i]) {
-        flag = false;
+let flag;
+do {
+    let input = Number(prompt("nhap vao phan tu them vao mang"));
+    flag = true;
+    for (i = 0; i < n; i++) {
+        if (input === a[i]) {
+            flag = false;
+            alert("so da trung lap, moi ban nhap lai");
+            break;
+        }
     }
+    if (flag === true) {
+        a.push(input);
+    }
+
 }
-if (flag === true) {
-    a.push(input);
-}
+while (flag == false);
 console.log("a sau khi them phan tu la");
 console.log(a);
+//////////// xoa 1 phan tu trong mang o vi tri bat ki
+let xoa;
+do {
+    xoa = Number(prompt("nhap vao vi tri ban muon xoa phan tu"));
+    a.splice(xoa, 1);
+}
+while (xoa < 0 || xoa > n);
+console.log("mang sau khi xoa phan tu o vi tri thu " + xoa + " la: " + a);
 
+loop = prompt("ban co muon nhap mang khac khong? press Y to agree, N to cancel ").toLowerCase().trim();
+}
+while(loop ==="y");
